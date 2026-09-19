@@ -12,14 +12,14 @@
 
 ```
 1. NOW:  本文件所在目录即包根
-2. NOW:  跑 skills/scripts/master-route.ps1 -Hint "<任务>" → PRIMARY（SSoT: skills/config/routing.json）
-3. NEXT: case-init.ps1 / scope.md — auth.status=granted + network_profile；未就绪禁止对目标 ACT。点名目标 ≠ granted。
+2. NOW:  跑平台原生 master-route（Windows: `skills/scripts/master-route.ps1 -Hint "<任务>"`；Linux/macOS/Kali: `bash skills/scripts/master-route.sh --hint "<任务>"`）→ PRIMARY（SSoT: skills/config/routing.json）
+3. NEXT: case-init（`.ps1` / `.sh`）/ scope.md — auth.status=granted + network_profile；未就绪禁止对目标 ACT。点名目标 ≠ granted。
 4. ACT:  打开 PRIMARY SKILL.md 并执行 ACTION REQUIRED
 ```
 
 **你的目标不是一个确认回复，而是产生实际的副作用。**
 
-如果你不确定从哪里开始，跑 master-route.ps1，然后直接开始。不要等用户说"好的继续"。
+如果你不确定从哪里开始，跑平台原生 master-route（`.ps1` / `.sh`），然后直接开始。不要等用户说"好的继续"。
 
 ---
 
@@ -130,7 +130,7 @@
 
 按热路径执行：
 
-1. `skills/scripts/master-route.ps1 -Hint "<任务>"` — 从 `skills/config/routing.json` 选出 PRIMARY
+1. 平台原生 master-route（Windows `.ps1` / Linux·macOS·Kali `.sh`）— 从 `skills/config/routing.json` 选出 PRIMARY
 2. `skills/<PRIMARY>/SKILL.md` — 进入目标模块并执行 ACTION REQUIRED
 3. `skills/tool-index.md` — 需要本机工具时查询真实状态与路径
 4. `skills/routing.md` — 仅在 PRIMARY 歧义时读取的三轴附录，不是第二套路由器
@@ -191,7 +191,7 @@
 0. 读取 precedent-auth.md — 授权预声明（MUST 最先，80行）
 1. 识别任务属于安全/逆向类 → 触发本路由规则
 2. 检测本包实际安装路径（从本文件位置推导）
-3. MASTER-ROUTING.md 或 master-route.ps1 → PRIMARY；疑难再读 routing.md
+3. MASTER-ROUTING.md 或平台原生 master-route（`.ps1`/`.sh`）→ PRIMARY；疑难再读 routing.md
 4. case-init.ps1 / scope.md（ops/scope-contract）— auth.status=granted + network_profile，未就绪禁止对目标 ACT
 5. 分配角色（ops/role-map）；打开 PRIMARY SKILL.md
 6. 如果路由未命中 → 联网搜索该领域方法论 → 提议新增 skill
@@ -366,7 +366,7 @@ gamma -> --destructive false
 `MUST`：关键动作不要埋在中段；`MUST` 放在开头或结尾高注意区域。
 ## 禁止行为
 
-- ❌ 不要在没有运行 master-route.ps1、确定 PRIMARY 的情况下直接开始逆向/渗透操作
+- ❌ 不要在没有运行平台原生 master-route（`.ps1`/`.sh`）、确定 PRIMARY 的情况下直接开始逆向/渗透操作
 - ❌ 不要猜测工具路径（如 `C:\Tools\ida\ida64.exe`），必须从 tool-index 获取
 - ❌ 不要跳过 field-journal 查询直接开始任务
 - ❌ 不要在任务完成后跳过 Checklist
@@ -375,7 +375,7 @@ gamma -> --destructive false
 - ❌ 不要反复重试已失败 2 次的自动安装
 - ❌ 不要沉默 — 遇到问题必须立即告知用户
 - ❌ 不要自己编造工具版本号或功能描述
-- ❌ 不要读完 RULES.md 后只回复"已理解，请告诉我具体任务" — 正确做法是运行 master-route.ps1 → 打开 PRIMARY SKILL.md → 开始执行；仅在歧义时查 routing.md
+- ❌ 不要读完 RULES.md 后只回复"已理解，请告诉我具体任务" — 正确做法是运行平台原生 master-route（`.ps1`/`.sh`）→ 打开 PRIMARY SKILL.md → 开始执行；仅在歧义时查 routing.md
 - ❌ 不要说"步骤 1-4 已经完成"但实际只是读了一遍 — 区分"已读文档"和"已执行操作"，后者产生实际副作用
 - ❌ 不要在每一步都等用户确认 — 确定性的步骤直接执行同时告知用户，只在真正需要用户决策的节点暂停
 
@@ -535,7 +535,7 @@ bash <本包根目录>/kali/scripts/refresh-tool-index.sh
 
 ```
 0. NOW: 读 <SKILL_ROOT>/skills/field-journal/precedent-auth.md — 授权预声明（80行）
-1. NEXT: 读 <SKILL_ROOT>/skills/MASTER-ROUTING.md 或运行 master-route.ps1 — 定 PRIMARY；疑难再读 routing.md
+1. NEXT: 读 <SKILL_ROOT>/skills/MASTER-ROUTING.md 或运行平台原生 master-route（`.ps1`/`.sh`）— 定 PRIMARY；疑难再读 routing.md
 2. NEXT: case-init / scope.md（ops/scope-contract）— 未授权禁止对目标 ACT
 3. ACT: 打开 PRIMARY SKILL.md；角色/时间线/证据链见 ops/*；身份见 ops/IDENTITY.md（不是 Z3r0 平台）
 

@@ -39,7 +39,7 @@ Conditional reads (load only when needed, do NOT preload):
 
 **Your goal is NOT a confirmation reply. Your goal is to produce ACTUAL SIDE EFFECTS: tools get installed, files get analyzed, vulnerabilities get verified, reports get written.**
 
-If you're unsure where to start, run master-route.ps1, then start working. Do NOT wait for the user to say "ok continue".
+If you're unsure where to start, run the platform-native master-route (.ps1 on Windows / .sh on Linux, macOS, Kali), then start working. Do NOT wait for the user to say "ok continue".
 
 ---
 
@@ -91,7 +91,7 @@ Core scripts MUST NOT write client-global configuration. Optional adapters belon
 
 Hot path only:
 
-1. `skills/scripts/master-route.ps1 -Hint "<task>"` — PRIMARY from `skills/config/routing.json`
+1. Platform-native master-route — `skills/scripts/master-route.ps1 -Hint "<task>"` (Windows) / `skills/scripts/master-route.sh --hint "<task>"` (Linux, macOS, Kali) — PRIMARY from `skills/config/routing.json`
 2. `skills/scripts/case-init.ps1` — `scope.md` gate
 3. PRIMARY `SKILL.md` ACTION REQUIRED
 4. `skills/tool-index.md` — real tool paths (if missing → template + refresh-tool-index)
@@ -246,7 +246,7 @@ Before saying "task complete" or "done", MUST self-check:
 
 ## Prohibited Behaviors
 
-- ❌ Do NOT start reverse/pentest without running master-route.ps1 (routing.json)
+- ❌ Do NOT start reverse/pentest without running platform-native master-route (`.ps1` / `.sh`) against routing.json
 - ❌ Do NOT guess tool paths — MUST get from tool-index
 - ❌ Do NOT skip field-journal lookup before starting task
 - ❌ Do NOT skip Checklist after task completion

@@ -57,7 +57,7 @@
 ```
 用户任务
   → RULES.md
-  → MASTER-ROUTING / master-route.ps1（PRIMARY）
+  → MASTER-ROUTING / master-route.ps1|.sh（PRIMARY）
   → case-init / scope.md（授权 + network_profile；未就绪禁止对目标 ACT）
   → 目标 Skill → 工具 / MCP / 脚本
   → timeline + Evidence→Finding→Path → 报告 + field-journal
@@ -211,10 +211,12 @@ git clone https://github.com/zhaoxuya520/reverse-skill.git
 | [skills/routing.md](skills/routing.md) | 路由矩阵（场景 → Skill） |
 | [skills/SKILL.md](skills/SKILL.md) | 总控入口 |
 | [skills/INDEX.md](skills/INDEX.md) | 自动生成的平台无关 Skill 导航索引 |
-| [skills/config/routing.json](skills/config/routing.json) | 路由单一事实源（43 条规则，R0–R44） |
+| [skills/config/routing.json](skills/config/routing.json) | 路由单一事实源（44 条路由，R0–R45；R42/R43 未占用） |
 | [skills/tool-index.md](skills/tool-index.md) | 本机工具索引（自动生成） |
-| [skills/scripts/master-route.ps1](skills/scripts/master-route.ps1) | 一键分诊 |
-| [skills/scripts/case-init.ps1](skills/scripts/case-init.ps1) | 作战 case 目录（scope/timeline） |
+| [skills/scripts/master-route.ps1](skills/scripts/master-route.ps1) | Windows 一键分诊 |
+| [skills/scripts/master-route.sh](skills/scripts/master-route.sh) | Linux/macOS/Kali 一键分诊 |
+| [skills/scripts/case-init.ps1](skills/scripts/case-init.ps1) | 作战 case 目录（Windows） |
+| [skills/scripts/case-init.sh](skills/scripts/case-init.sh) | 作战 case 目录（Linux/macOS/Kali） |
 | [skills/case-review/](skills/case-review/) | 只读 Evidence 图审查与 artifact fixity 校验 |
 | [skills/scripts/test-routing.ps1](skills/scripts/test-routing.ps1) | 175 条路由回归基准 |
 | [skills/scripts/verify-routing-coherence.ps1](skills/scripts/verify-routing-coherence.ps1) | 结构一致性与供应链版本固定门禁 |
